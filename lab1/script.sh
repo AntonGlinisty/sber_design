@@ -6,8 +6,9 @@ while true; do
     case "$1" in
         --START)
             if [ "$MONITORING_PID" == "" ]; then
-                ./monitoring.sh &
+                . monitoring.sh &
                 export MONITORING_PID=$!
+                export START_TIMESTAMP=$(date +%T)
             fi
             echo "Monitoring process pid = $MONITORING_PID"
         ;;
