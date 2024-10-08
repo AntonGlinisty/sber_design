@@ -1,3 +1,5 @@
+#! /bin/bash
+
 while true; do
 	freeInodes=$(df -i / | awk '{print $4}' | sed -n '2p')
 	if [ "$CURRENT_DATE" != $(date +%d_%m_%Y) ]; then

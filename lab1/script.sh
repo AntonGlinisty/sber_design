@@ -1,3 +1,5 @@
+#! /bin/bash
+
 options=$(getopt -o h --long START,STATUS,STOP -- "$@")
 
 eval set -- "$options"
