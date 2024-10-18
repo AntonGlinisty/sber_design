@@ -1,7 +1,7 @@
 services:
   app:
     container_name: lab3_app
-    image: lab3_task2
+    image: glinisty/lab3_task2
     ports:
       - "5000:5000"
     networks:
