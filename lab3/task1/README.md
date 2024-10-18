@@ -1,21 +1,13 @@
-##### Приложение представляет собой простой скрипт. Скрипт при запуске обращается в БД и выполняет "SELECT *" из таблицы films.
+##### Приложение представляет собой flask сервер. Сервер работает на порту 5000 и на корневой ручке выдает "SELECT *" из таблицы films БД postgres.
 
 ##### Запуск контейнера:
 ```
-docker run -d -e POSTGRES_PASSWORD=postgres --name={{ container_name }} glinisty/lab3
+docker run --rm -d -p 5000:5000 -e POSTGRES_PASSWORD=postgres --name={{container_name}} glinisty/lab3_task1
 ```
 
-##### Подключение к работающему контейнеру:
+##### Запуск flask сервера:
 ```
-docker exec -it {{ container_name }} bash
-```
-
-##### После подключения нужно выполнить скрипт run.sh для загрузки таблицы films из бэкапа:
-```
-./run.sh >> /dev/null
+docker exec -it {{container_name}} python3 main.py
 ```
 
-##### Для выгрузки данных из таблицы films нужно выполнить скрипт main.py:
-```
-./main.py
-```
+##### Вводим в браузере URL "http://localhost:5000/" и смотрим результат.
