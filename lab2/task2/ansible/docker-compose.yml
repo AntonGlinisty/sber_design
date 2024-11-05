@@ -1,0 +1,19 @@
+services:
+  ansible_host:
+    container_name: lab2_ansible_host
+    image: lab2_ansible_host
+    build: .
+    networks:
+      - lab2_network
+    depends_on:
+      - nginx_host
+
+  script_host:
+    container_name: lab2_script_host
+    image: ubuntu
+    networks:
+      - lab2_network
+
+networks:
+  lab2_network:
+    driver: bridge
