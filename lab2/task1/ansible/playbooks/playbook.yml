@@ -1,9 +1,9 @@
 ---
 - name: Install Nginx
-  hosts: servers
+  hosts: nginx_host
   become: yes
   tasks:
-    - name: Update apt package index
+    - name: Update apt cache
       apt:
         update_cache: yes
 
@@ -17,8 +17,3 @@
         name: nginx
         state: started
         enabled: yes
-
-    # - name: Ensure firewall allows 'Nginx Full'
-    #   ufw:
-    #     rule: allow
-    #     name: 'Nginx Full'
