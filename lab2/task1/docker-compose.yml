@@ -1,0 +1,20 @@
+services:
+  ansible_host:
+    container_name: lab2_ansible_host
+    image: lab2_ansible_host
+    build: .
+    networks:
+      - lab2_network
+    depends_on:
+      - nginx_host
+
+  nginx_host:
+    container_name: lab2_nginx_host
+    image: ubuntu
+    networks:
+      - lab2_network
+    command: ["sleep", "5"]
+
+networks:
+  lab2_network:
+    driver: bridge
