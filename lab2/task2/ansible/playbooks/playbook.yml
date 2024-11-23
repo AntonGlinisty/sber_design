@@ -1,0 +1,15 @@
+---
+- name: Run script
+  hosts: 
+  tasks: 
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Copy script
+    copy:
+      src: ./script.py
+      dest: /script.py
+
+  - name: Run script
+    command: . script.sh --START / --STATUS / --STOP
